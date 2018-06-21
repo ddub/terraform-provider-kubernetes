@@ -277,6 +277,7 @@ func flattenDownwardAPIVolumeFile(in []v1.DownwardAPIVolumeFile) []interface{} {
 }
 
 func flattenConfigMapVolumeSource(in *v1.ConfigMapVolumeSource) []interface{} {
+	log.Printf("[INFO] Received ConfigMapVolumeSource: %#v", in)
 	att := make(map[string]interface{})
 	if in.DefaultMode != nil {
 		att["default_mode"] = *in.DefaultMode
@@ -287,7 +288,7 @@ func flattenConfigMapVolumeSource(in *v1.ConfigMapVolumeSource) []interface{} {
 		for i, v := range in.Items {
 			m := map[string]interface{}{}
 			m["key"] = v.Key
-			m["mode"] = int(*v.Mode)
+			m["mode"] = int(v.Mode)
 			m["path"] = v.Path
 			items[i] = m
 		}
