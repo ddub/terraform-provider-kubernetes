@@ -2,6 +2,7 @@ package kubernetes
 
 import (
 	"strconv"
+	"log"
 
 	"github.com/hashicorp/terraform/helper/schema"
 	"k8s.io/api/core/v1"
