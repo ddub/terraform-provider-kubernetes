@@ -242,8 +242,6 @@ func flattenConfigMapEnvSource(in *v1.ConfigMapEnvSource) []interface{} {
 		att["name"] = in.Name
 	}
 
-	att["optional"] = *in.Optional
-
 	return []interface{}{att}
 }
 
